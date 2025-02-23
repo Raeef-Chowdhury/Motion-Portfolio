@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
 <html lang="en" class="text-[62.5%]">
   <head>
     <meta charset="UTF-8" />
@@ -45,17 +45,48 @@
             </li>
           </div>
           <div class="theme text-[4.8rem]">
-            <div class="light__box hidden nav__list--item">
+            <div class="light__box hover:cursor-pointer hidden nav__list--item">
               <ion-icon name="sunny"></ion-icon>
             </div>
-            <div class="dark__box nav__list--item">
+            <div class="dark__box hover:cursor-pointer nav__list--item">
               <ion-icon name="moon"></ion-icon>
             </div>
           </div>
         </ul>
       </nav>
     </header>
-    <section class="hero__section"></section>
+    <section
+      class="hero__section flex flex-col gap-[3.2rem] items-center justify-center text-center mt-[9.6rem]"
+    >
+      <div class="img__box flex gap-[2.4rem] items-center justify-center">
+        <img
+          src="src/20250128_095313.jpg"
+          alt="Developer__img"
+          class="profile__img w-[15%] rounded-full border-white border-4 bg-black object-cover aspect-square h-auto"
+        />
+        <div
+          class="tooltip absolute bg-[#262321] border-white text-white text-[1.8rem] px-[0.6rem] py-[0.4rem] rounded-md hidden left-[632px] top-[230px]"
+        >
+          👋Hi There!
+        </div>
+        <div class="profile__info flex flex-col gap-[0.6rem] items-start">
+          <p class="profile__name text-[2.4rem] text-[#f96731]">
+            Raeef Chowdhury
+          </p>
+          <div
+            class="profile__origin--box flex gap-[0.6rem] items-center justify-center text-[1.4rem] text-[#d2ad95]"
+          >
+            <ion-icon
+              name="location-outline"
+              class="text-white text-[1.8rem]"
+            ></ion-icon>
+            <p class="profile__origin text-[1.4rem] text-[#d2ad95]">
+              Based in Australia
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
   <script
     type="module"
