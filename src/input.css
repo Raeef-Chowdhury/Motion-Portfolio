@@ -36,3 +36,7 @@
   width: 120%;
   height: 120%;
 }
+
+* {
+  cursor: url("custom-cursor.png"), auto !important;
+}

@@ -2,6 +2,24 @@ import { animate, hover, press, stagger, spring } from "motion";
 const profileImg = document.querySelector(".profile__img");
 const tooltip = document.querySelector(".tooltip");
 const heroEffects = document.querySelectorAll(".hero__effect");
+const cursorBorder = document.querySelector(".cursor");
+const body = document.querySelector("body");
+/////////////////////////////////////////////////////////////////
+
+let xPos;
+let yPos;
+document.addEventListener("mousemove", (event) => {
+  xPos = event.pageX;
+  yPos = event.pageY;
+  cursorBorder.style.left = `${xPos + 4}px`;
+  cursorBorder.style.top = `${yPos + 4}px`;
+});
+press(body, (element) => {
+  animate(cursorBorder, { width: "24px", height: "24px" });
+
+  return () => animate(cursorBorder, { width: "36px", height: "36px" });
+});
+//////////////////////////////////////////////////////////////////
 let currentIndex = 0;
 heroEffects.forEach((el, i) => {
   if (i === 0) {
@@ -86,7 +104,6 @@ let intervalId;
 
 function trackMousePosition(x, y) {
   tooltip.classList.remove("hidden");
-  console.log(x, y);
   tooltip.style.left = `${x - 50}px`;
   tooltip.style.top = `${y - 150}px`;
 }
