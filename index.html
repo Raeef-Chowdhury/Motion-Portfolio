@@ -19,10 +19,7 @@
             href="https://github.com/Raeef-Chowdhury"
             target="_blank"
           >
-            <ion-icon
-              name="logo-github"
-              href="https://github.com/Raeef-Chowdhury"
-            ></ion-icon>
+            <ion-icon name="logo-github"></ion-icon>
           </a>
 
           <div
@@ -55,8 +52,15 @@
         </ul>
       </nav>
     </header>
+    <div class="relative">
+      <div
+        class="tooltip z-10 absolute bg-[#262321] border-white text-white text-[1.8rem] px-[0.6rem] py-[0.4rem] rounded-md hidden left-[632px] top-[230px]"
+      >
+        👋Hi There!
+      </div>
+    </div>
     <section
-      class="hero__section flex flex-col gap-[3.2rem] items-center justify-center text-center mt-[9.6rem]"
+      class="hero__section flex flex-col items-center justify-center text-center mt-[9.6rem]"
     >
       <div class="img__box flex gap-[2.4rem] items-center justify-center">
         <img
@@ -64,11 +68,7 @@
           alt="Developer__img"
           class="profile__img w-[15%] rounded-full border-white border-4 bg-black object-cover aspect-square h-auto"
         />
-        <div
-          class="tooltip absolute bg-[#262321] border-white text-white text-[1.8rem] px-[0.6rem] py-[0.4rem] rounded-md hidden left-[632px] top-[230px]"
-        >
-          👋Hi There!
-        </div>
+
         <div class="profile__info flex flex-col gap-[0.6rem] items-start">
           <p class="profile__name text-[2.4rem] text-[#f96731]">
             Raeef Chowdhury
@@ -85,6 +85,43 @@
             </p>
           </div>
         </div>
+      </div>
+      <div
+        class="hero__heading text-white text-[7.2rem] mt-[4.8rem] flex gap-[3.2rem] w-[100rem] items-start overflow-hidden"
+      >
+        <div class="mr-[50rem] stagger">
+          An <span class="stagger">ambitious</span>
+        </div>
+        <div
+          class="hero__slideshow max-h-[50rem] min-w-[min-content] relative stagger"
+        >
+          <span
+            class="hero__effect absolute top-[0] left-[-50rem] inline-block whitespace-nowrap text-[#d2ad95]"
+            >Programmer</span
+          >
+          <span
+            class="hero__effect absolute top-[0] left-[-50rem] inline-block whitespace-nowrap text-[#d2ad95]"
+            >UI/UX Designer</span
+          >
+          <span
+            class="hero__effect absolute top-[0] left-[-50rem] inline-block whitespace-nowrap text-[#d2ad95]"
+            >Web Developer
+          </span>
+        </div>
+      </div>
+      <div
+        class="hero__btn flex items-center justify-between gap-[2.4rem] mt-[6rem]"
+      >
+        <button
+          class="text-[#f96731] text-[2.4rem] btn__cta justify-self-center stagger__btn uppercase font-semibold self-center rounded-[8rem] btn__cta--2 overflow-hidden border-[#d2ad95] border-4 px-[6rem] py-[1.2rem] relative"
+        >
+          About me
+        </button>
+        <button
+          class="text-white overflow-hidden text-[2.4rem] btn__cta btn__cta--1 relative justify-self-center stagger__btn uppercase font-semibold self-center rounded-[8rem] border-[#f96731] border-2 px-[6rem] py-[1.2rem]"
+        >
+          My Work
+        </button>
       </div>
     </section>
   </body>

@@ -1,30 +1,109 @@
 import { animate, hover, press, stagger, spring } from "motion";
 const profileImg = document.querySelector(".profile__img");
 const tooltip = document.querySelector(".tooltip");
+const heroEffects = document.querySelectorAll(".hero__effect");
+let currentIndex = 0;
+heroEffects.forEach((el, i) => {
+  if (i === 0) {
+    el.style.opacity = 1;
+    el.style.transform = "translateY(0%)";
+  } else {
+    el.style.opacity = 0;
+    el.style.transform = "translateY(100%)";
+  }
+});
+
+function slideNext(currentIndex, heroEffects) {
+  const currentSlide = heroEffects[currentIndex];
+  const nextIndex = (currentIndex + 1) % heroEffects.length;
+  const nextSlide = heroEffects[nextIndex];
+
+  animate(
+    currentSlide,
+    {
+      opacity: [1, 0],
+      transform: ["translateY(0%)", "translateY(100%)"],
+    },
+    {
+      duration: 1,
+    }
+  );
+  animate(
+    nextSlide,
+    {
+      opacity: [0, 1],
+      transform: ["translateY(-100%)", "translateY(0%)"],
+    },
+    {
+      duration: 1,
+      easing: "ease-in-out",
+    }
+  );
+
+  return nextIndex;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+animate(
+  ".stagger",
+  {
+    opacity: [0, 1],
+    filter: ["blur(5px)", "blur(0px)"],
+    x: ["-50rem", "0rem"],
+  },
+  { delay: stagger(0.2), duration: 2, type: "spring", bounce: 0.3 }
+);
+
+animate(
+  ".stagger__btn",
+  {
+    opacity: [0, 1],
+    filter: ["blur(5px)", "blur(0px)"],
+    x: ["-10rem", "0rem"],
+    y: ["10rem", "0rem"],
+  },
+  { delay: stagger(0.2), duration: 2, type: "spring", bounce: 0.3 }
+);
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+setInterval(() => {
+  currentIndex = slideNext(currentIndex, heroEffects);
+}, 3000);
+///////////////////////////////////////////////////////////////////////////////
+hover(".btn__cta", (element) => {
+  animate(element, {
+    scale: 1.1,
+    duration: 0.6,
+    y: "-2rem",
+  });
+  return () =>
+    animate(element, {
+      scale: 1,
+      duration: 0.6,
+      y: "-0rem",
+    });
+});
+////////////////////////////////////////////////////////////////////////////////////
 let intervalId;
 
 function trackMousePosition(x, y) {
   tooltip.classList.remove("hidden");
+  console.log(x, y);
   tooltip.style.left = `${x - 50}px`;
-  tooltip.style.top = `${y - 50}px`;
+  tooltip.style.top = `${y - 150}px`;
 }
 
 function startTracking(event) {
   intervalId = setInterval(() => {
     trackMousePosition(event.clientX, event.clientY);
-  }, 1000);
+  }, 3000);
 }
 
 function stopTracking() {
-  // Stop tracking when mouse leaves the element
   clearInterval(intervalId);
 }
 
-//Start tracking mouse on mouseenter, and stop on mouseleave
 profileImg.addEventListener("mouseenter", (event) => startTracking(event));
 profileImg.addEventListener("mousemove", (event) => {
   if (intervalId) {
-    // Update the current mouse position each time mouse moves inside the element
     trackMousePosition(event.clientX, event.clientY);
   }
 });
@@ -36,22 +115,20 @@ function animateTooltipIn() {
     {
       opacity: [0, 1],
       filter: ["blur(5px)", "blur(0px)"],
-      x: ["-10rem", "0rem"],
+      x: ["-2rem", "0rem"],
     },
     {
       duration: 1,
     }
   );
 }
-
-// Function to animate the tooltip out
 function animateTooltipOut() {
   animate(
     tooltip,
     {
       opacity: [1, 0],
       filter: ["blur(0px)", "blur(5px)"],
-      x: ["0rem", "-10rem"],
+      x: ["0rem", "-2rem"],
     },
     {
       duration: 1,
@@ -59,11 +136,22 @@ function animateTooltipOut() {
   );
 }
 
-// Add hover event listener to profile image
 profileImg.addEventListener("mouseenter", animateTooltipIn);
 
-// Add mouseleave event listener to profile image
 profileImg.addEventListener("mouseleave", animateTooltipOut);
+animate(
+  ".img__box",
+  {
+    opacity: [0, 1],
+    filter: ["blur(5px)", "blur(0px)"],
+    scale: [0, 1],
+  },
+  {
+    duartion: 1.6,
+    type: "spring",
+    bounce: 0.2,
+  }
+);
 ///////////////////////////////////////////////////////////////////////////////////////////
 hover(".navigation__item", (element) => {
   animate(element, {
@@ -117,42 +205,3 @@ press(".nav__list--item", (element) => {
   animate(element, { scale: 0.8 });
   return () => animate(element, { scale: 1 });
 });
-// const leftElements = document.querySelectorAll(".left");
-
-// animate(
-//   leftElements,
-//   {
-//     opacity: [0, 1],
-//     filter: ["blur(5px)", "blur(0px)"],
-//     x: ["-100rem", "0rem"],
-//     delay: stagger(0.2),
-//   },
-//   {
-//     duration: 2, //
-//     type: spring,
-//     bounce: 0.2,
-//   }
-// );
-
-// //
-// hover(".box", (element) => {
-//   animate(element, { scale: 1.3 }, { type: "spring" });
-//   return () => animate(element, { scale: 1 }, { type: "spring" });
-// });
-
-// hover(".left", (element) => {
-//   animate(element, {
-//     scale: 1.05,
-//     y: "-20px",
-//   });
-//   return () =>
-//     animate(element, {
-//       scale: 1,
-//       y: "0px",
-//     });
-// });
-
-// press(".left", (element) => {
-//   animate(element, { scale: 0.9 });
-//   return () => animate(element, { scale: 1 });
-// });

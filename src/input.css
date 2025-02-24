@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+:root {
+  --before-width: 110%;
+}
+.btn__cta--1::before {
+  transition: all 0.4s;
+  content: "";
+  position: absolute;
+  background-color: #507c26;
+  top: 0;
+  left: -3%;
+  width: 1%;
+  height: 100%;
+  z-index: -1;
+}
+.btn__cta--1:hover::before {
+  border-radius: 1000rem;
+  width: 120%;
+  height: 120%;
+}
+.btn__cta--2::before {
+  transition: all 0.4s;
+  content: "";
+  position: absolute;
+  background-color: white;
+  top: 0;
+  left: -3%;
+  width: 1%;
+  height: 100%;
+  z-index: -1;
+}
+
+.btn__cta--2:hover::before {
+  border-radius: 1000rem;
+  width: 120%;
+  height: 120%;
+}
