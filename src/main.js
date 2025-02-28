@@ -1,19 +1,75 @@
-import { animate, hover, press, stagger, spring } from "motion";
+import { animate, hover, press, stagger, spring, inView } from "motion";
 const profileImg = document.querySelector(".profile__img");
 const tooltip = document.querySelector(".tooltip");
 const heroEffects = document.querySelectorAll(".hero__effect");
 const cursorBorder = document.querySelector(".cursor");
 const body = document.querySelector("body");
+console.log(body.clientHeight);
 /////////////////////////////////////////////////////////////////
 
-let xPos;
-let yPos;
-document.addEventListener("mousemove", (event) => {
-  xPos = event.pageX;
-  yPos = event.pageY;
+inView(".scroll--left", (element) => {
+  animate(
+    element,
+    { opacity: [0, 1], x: ["-50rem", 0], filter: ["blur(5px)", "blur(0px)"] },
+    {
+      duration: 2,
+      easing: [0.17, 0.55, 0.55, 1],
+      type: "spring",
+    }
+  );
+
+  return () => animate(element, { opacity: 0, x: -100 });
+});
+inView(".scroll__right", (element) => {
+  animate(
+    element,
+    { opacity: [0, 1], x: ["50rem", 0], filter: ["blur(5px)", "blur(0px)"] },
+    {
+      duration: 2,
+      delay: 0.2,
+      easing: [0.17, 0.55, 0.55, 1],
+      type: "spring",
+    }
+  );
+
+  return () => animate(element, { opacity: 0, x: -100 });
+});
+////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+const updatePosition = (event) => {
+  // Get the correct mouse position from the event (clientX, clientY)
+  const xPos = event.clientX; // clientX and clientY are relative to the viewport
+  const yPos = event.clientY;
+
+  // Set the cursor border position relative to the mouse
   cursorBorder.style.left = `${xPos + 4}px`;
   cursorBorder.style.top = `${yPos + 4}px`;
+
+  console.log(xPos, yPos); // For debugging
+};
+////////////////////////////////////////////////////////////////////////////////
+hover(".more__img", (element) => {
+  animate(".img__reveal", {
+    y: "-22rem",
+    opacity: 1,
+    visibility: "visible",
+  });
+
+  return () =>
+    animate(
+      ".img__reveal",
+      { y: "0rem", opacity: 0, visibility: "hidden", border: "none" },
+      {
+        duration: 3,
+        type: "spring",
+        ease: "linear",
+      }
+    );
 });
+///////////////////////////////////////////////////////////////////////////////
+// Listen for both mousemove and wheel events and update cursor position
+document.addEventListener("mousemove", updatePosition);
+document.addEventListener("wheel", updatePosition);
 press(body, (element) => {
   animate(cursorBorder, { width: "24px", height: "24px" });
 
@@ -68,7 +124,7 @@ animate(
     filter: ["blur(5px)", "blur(0px)"],
     x: ["-50rem", "0rem"],
   },
-  { delay: stagger(0.2), duration: 2, type: "spring", bounce: 0.3 }
+  { delay: stagger(0.4), duration: 2, type: "spring", bounce: 0.3 }
 );
 
 animate(
@@ -79,7 +135,7 @@ animate(
     x: ["-10rem", "0rem"],
     y: ["10rem", "0rem"],
   },
-  { delay: stagger(0.2), duration: 2, type: "spring", bounce: 0.3 }
+  { delay: stagger(0.4), duration: 2, type: "spring", bounce: 0.3 }
 );
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 setInterval(() => {
@@ -89,14 +145,16 @@ setInterval(() => {
 hover(".btn__cta", (element) => {
   animate(element, {
     scale: 1.1,
-    duration: 0.6,
-    y: "-2rem",
+    duration: 2,
+    y: ["-0rem", "-1rem"],
+    skew: "-10deg",
   });
   return () =>
     animate(element, {
       scale: 1,
-      duration: 0.6,
+      duration: 2,
       y: "-0rem",
+      skew: "0deg",
     });
 });
 ////////////////////////////////////////////////////////////////////////////////////

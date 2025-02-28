@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
-<html lang="en" class="text-[62.5%]">
+<html lang="en" class="text-[62.5%] scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,9 @@
     <link href="src/output.css" rel="stylesheet" />
     <script src="/src/main.js" type="module"></script>
   </head>
-  <body class="text-[62.5%] bg-[#0e0b08]">
+  <body
+    class="text-[62.5%] bg-[#0e0b08] scroll-smooth pb-[20rem] overflow-x-hidden"
+  >
     <div
       class="fixed w-[4rem] h-[4rem] rounded-[50%] border-2 left-[-2000px] border-white cursor z-[2] transform-[translateX(-50%)_translateY(-50%)] pointer-events-none"
     ></div>
@@ -28,6 +30,11 @@
           <div
             class="navigation__box flex justify-self-center rounded-[4.8rem] border-white border-2 overflow-hidden"
           >
+            <li
+              class="navigation__item text-[1.6rem] font-semibold hover:cursor-pointer px-[3rem] py-[1.6rem]"
+            >
+              ABOUT ME
+            </li>
             <li
               class="navigation__item text-[1.6rem] font-semibold hover:cursor-pointer px-[3rem] py-[1.6rem]"
             >
@@ -115,16 +122,75 @@
       <div
         class="hero__btn flex items-center justify-between gap-[2.4rem] mt-[6rem]"
       >
-        <button
+        <a
           class="text-[#f96731] text-[2.4rem] btn__cta justify-self-center stagger__btn uppercase font-semibold self-center rounded-[8rem] btn__cta--2 overflow-hidden border-[#d2ad95] border-4 px-[6rem] py-[1.2rem] relative"
+          href="#about"
         >
           About me
-        </button>
-        <button
+        </a>
+        <a
           class="text-white overflow-hidden text-[2.4rem] btn__cta btn__cta--1 relative justify-self-center stagger__btn uppercase font-semibold self-center rounded-[8rem] border-[#f96731] border-2 px-[6rem] py-[1.2rem]"
         >
           My Work
-        </button>
+        </a>
+      </div>
+    </section>
+    <section class="section__about mt-[18rem]" id="about">
+      <h1
+        class="section__heading scroll--left mx-auto w-[fit-content] text-center text-[8rem] relative tracking-[2rem] text-white before:transition-all before:duration-[600ms] before:content-[] before:absolute before:w-[0] before:h-[10rem] before:left-[-10px] before:bottom-[0px] hover:before:w-[100%] before:skew-x-12 before:opacity-[0.2] hover:cursor-pointer before:bg-[#d2ad95]"
+      >
+        ABOUT ME
+      </h1>
+      <div
+        class="content mx-[24rem] mt-[6.4rem] flex justify-around items-center gap-[6.4rem]"
+      >
+        <div class="img__box scroll--left group relative">
+          <img
+            src="src/WIN_20250218_22_30_07_Pro.jpg"
+            alt="profile"
+            class="more__img rounded-md hover:blur-md transition-all hover:brightness-50"
+            srcset=""
+          />
+          <p
+            class="img__reveal text-[3.6rem] text-center uppercase hidden text-[#d2ad95] font-semibold transition-all group-hover:block absolute left-[0rem] top-[100%]"
+          >
+            Raeef Chowdhury
+          </p>
+        </div>
+        <div class="profile__info scroll__right">
+          <ul class="profile__info--list flex flex-col gap-[2.4rem]">
+            <li
+              class="info__list--item text-white text-[2.4rem] uppercase tracking-wide hover:scale-120 transition-all duration-200"
+            >
+              <span class="text-[#f96731]"> ——</span> 15 YEAR OLD DEVELOPER FROM
+              BANGLADESH
+            </li>
+            <li
+              class="info__list--item text-white text-[2.4rem] uppercase tracking-wide hover:scale-120 transition-all duration-200"
+            >
+              <span class="text-[#f96731]"> ——</span> RESIDING IN ALBURY,
+              AUSTRALIA
+            </li>
+            <li
+              class="info__list--item text-white text-[2.4rem] uppercase tracking-wide hover:scale-120 transition-all duration-200"
+            >
+              <span class="text-[#f96731]"> ——</span> LEARNING NEW TECHNOLOGIES
+              EVERYDAY
+            </li>
+            <li
+              class="info__list--item text-white text-[2.4rem] uppercase tracking-wide hover:scale-120 transition-all duration-200"
+            >
+              <span class="text-[#f96731]"> ——</span> PROFICIENT IN SCHOOL AND
+              LEARNING
+            </li>
+            <li
+              class="info__list--item text-white text-[2.4rem] uppercase tracking-wide hover:scale-120 transition-all duration-200"
+            >
+              <span class="text-[#f96731]"> ——</span> Soccer/Fitness in Free
+              time
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </body>
