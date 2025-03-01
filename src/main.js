@@ -20,6 +20,19 @@ inView(".scroll--left", (element) => {
 
   return () => animate(element, { opacity: 0, x: -100 });
 });
+inView(".scroll--down", (element) => {
+  animate(
+    element,
+    { opacity: [0, 1], scale: [0, 1], filter: ["blur(5px)", "blur(0px)"] },
+    {
+      duration: 2,
+      easing: [0.17, 0.55, 0.55, 1],
+      type: "spring",
+    }
+  );
+
+  return () => animate(element, { opacity: 0, scale: 0 });
+});
 inView(".scroll__right", (element) => {
   animate(
     element,

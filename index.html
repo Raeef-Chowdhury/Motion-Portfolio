@@ -30,26 +30,27 @@
           <div
             class="navigation__box flex justify-self-center rounded-[4.8rem] border-white border-2 overflow-hidden"
           >
-            <li
+            <a
               class="navigation__item text-[1.6rem] font-semibold hover:cursor-pointer px-[3rem] py-[1.6rem]"
+              href="#about"
             >
               ABOUT ME
-            </li>
-            <li
+            </a>
+            <a
               class="navigation__item text-[1.6rem] font-semibold hover:cursor-pointer px-[3rem] py-[1.6rem]"
             >
               PROJECTS
-            </li>
-            <li
+            </a>
+            <a
               class="navigation__item text-[1.6rem] font-semibold hover:cursor-pointer px-[3rem] py-[1.6rem]"
             >
               SKILLS
-            </li>
-            <li
+            </a>
+            <a
               class="navigation__item text-[1.6rem] font-semibold hover:cursor-pointer px-[3rem] py-[1.6rem]"
             >
               CONTACT
-            </li>
+            </a>
           </div>
           <div class="theme text-[4.8rem]">
             <div class="light__box hover:cursor-pointer hidden nav__list--item">
@@ -135,9 +136,9 @@
         </a>
       </div>
     </section>
-    <section class="section__about mt-[18rem]" id="about">
+    <section class="section__about mt-[24rem]" id="about">
       <h1
-        class="section__heading scroll--left mx-auto w-[fit-content] text-center text-[8rem] relative tracking-[2rem] text-white before:transition-all before:duration-[600ms] before:content-[] before:absolute before:w-[0] before:h-[10rem] before:left-[-10px] before:bottom-[0px] hover:before:w-[100%] before:skew-x-12 before:opacity-[0.2] hover:cursor-pointer before:bg-[#d2ad95]"
+        class="section__heading scroll--down mx-auto w-[fit-content] text-center text-[8rem] relative tracking-[2rem] text-white before:transition-all before:duration-[600ms] before:content-[] before:absolute before:w-[0] before:h-[10rem] before:left-[-10px] before:bottom-[0px] hover:before:w-[100%] before:skew-x-12 before:opacity-[0.2] hover:cursor-pointer before:bg-[#d2ad95]"
       >
         ABOUT ME
       </h1>
@@ -190,6 +191,85 @@
               time
             </li>
           </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section__projects mt-[24rem]" id="projects">
+      <h1
+        class="section__heading scroll--down mx-auto w-[fit-content] text-center text-[8rem] relative tracking-[2rem] text-white before:transition-all before:duration-[600ms] before:content-[] before:absolute before:w-[0] before:h-[10rem] before:left-[-10px] before:bottom-[0px] hover:before:w-[100%] before:skew-x-12 before:opacity-[0.2] hover:cursor-pointer before:bg-[#d2ad95]"
+      >
+        PROJECTS
+      </h1>
+      <div
+        class="projects__container grid grid-cols-2 grid-rows-2 mx-[18rem] mt-[12rem]"
+      >
+        <div
+          class="project flex flex-col border-4 border-white rounded-md overflow-hidden"
+        >
+          <div class="project__img--box border-b-4 border-white p-[2.4rem]">
+            <img src="src/Screenshot 2025-03-01 150315.png" class="" />
+          </div>
+          <div
+            class="project__info flex flex-col gap-[2.4rem] px-[1.8rem] py-[2.4rem]"
+          >
+            <h1
+              class="project__info--heading uppercase text-[3.2rem] text-[#f96731] border-b-4 w-[fit-content] border-white"
+            >
+              MY PORTFOLIo
+            </h1>
+            <p
+              class="project__info text-[1.8rem] text-white mb-[4.8rem] border-b-4 border-white pb-[2.4rem]"
+            >
+              The portfolio you are on right now, first meant as a way to learn
+              the motion library motion one, it is now my main portfolio, used
+              to showcase all of my achievements and work with web development
+            </p>
+            <ul
+              class="profile__languages uppercase text-white list-none flex items-center justify-start gap-[1.2rem] flex-nowrap"
+            >
+              <li
+                class="profile__language uppercase text-white text-[1.6rem] border-[#d2ad95] rounded-2xl px-[1.2rem] py-[0.8rem] border-4"
+              >
+                HTML
+              </li>
+              <li
+                class="profile__language uppercase text-white text-[1.6rem] border-[#d2ad95] rounded-2xl px-[1.2rem] py-[0.8rem] border-4"
+              >
+                JAVASCRIPT
+              </li>
+              <li
+                class="profile__language uppercase text-white text-[1.6rem] border-[#d2ad95] rounded-2xl px-[1.2rem] py-[0.8rem] border-4"
+              >
+                TAILWIND
+              </li>
+              <li
+                class="profile__language uppercase text-white text-[1.6rem] border-[#d2ad95] rounded-2xl px-[1.2rem] py-[0.8rem] border-4"
+              >
+                VITE
+              </li>
+              <li
+                class="profile__language uppercase text-white text-[1.6rem] border-[#d2ad95] rounded-2xl px-[1.2rem] py-[0.8rem] border-4"
+              >
+                MOTION ONE
+              </li>
+            </ul>
+            <div class="buttons flex items-center justify-between mt-[3.6rem]">
+              <a
+                class="btn__profile btn__github text-[#f96731] flex items-center gap-[0.6rem] uppercase justify-between text-[2.4rem] border-white bg-[#262321] rounded-[2.4rem] px-[2.4rem] py-[0.2rem] border-4"
+                target="_blank"
+                ><ion-icon
+                  name="arrow-forward-outline"
+                  class="-rotate-45"
+                ></ion-icon
+                >lIVE</a
+              >
+              <a
+                class="btn__profile btn__github text-[#f96731] flex items-center gap-[0.6rem] uppercase justify-between text-[2.4rem] border-white bg-[#262321] rounded-[2.4rem] px-[2.4rem] py-[0.2rem] border-4"
+                target="_blank"
+                ><ion-icon name="logo-github"></ion-icon>GITHUB</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </section>
