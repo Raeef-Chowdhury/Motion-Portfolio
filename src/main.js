@@ -39,7 +39,6 @@ inView(".scroll__right", (element) => {
     { opacity: [0, 1], x: ["50rem", 0], filter: ["blur(5px)", "blur(0px)"] },
     {
       duration: 2,
-      delay: 0.2,
       easing: [0.17, 0.55, 0.55, 1],
       type: "spring",
     }
@@ -154,6 +153,59 @@ animate(
 setInterval(() => {
   currentIndex = slideNext(currentIndex, heroEffects);
 }, 3000);
+//////////////////////////////////////////////////////////////////////////////
+
+press(".btn__profile", (element) => {
+  animate(element, { scale: 0.7 });
+  return () => animate(element, { scale: 1 });
+});
+
+hover(".btn__profile", (element) => {
+  animate(element, {
+    scale: 1.2,
+    duration: 0.6,
+  });
+  return () =>
+    animate(element, {
+      scale: 1,
+      duration: 0.6,
+    });
+});
+/////////////////////////////////////////////////////////////////////////////
+
+hover(".profile__language", (element) => {
+  const projectContainer = element.closest(".project");
+  console.log(projectContainer);
+  const siblings = projectContainer.querySelectorAll(".profile__languages");
+
+  siblings.forEach((sibling) => {
+    if (sibling !== element) {
+      animate(sibling, { scale: 0.8, duration: 0.3 });
+    }
+  });
+
+  animate(element, {
+    scale: 1.2,
+    duration: 0.3,
+    y: ["-0rem", "-2rem"],
+    backgroundColor: "#f96731",
+  });
+
+  return () => {
+    animate(element, {
+      scale: 1,
+      duration: 0.3,
+      y: "-0rem",
+      backgroundColor: "#0e0b08",
+    });
+
+    siblings.forEach((sibling) => {
+      if (sibling !== element) {
+        animate(sibling, { scale: 1, duration: 0.3 });
+      }
+    });
+  };
+});
 ///////////////////////////////////////////////////////////////////////////////
 hover(".btn__cta", (element) => {
   animate(element, {

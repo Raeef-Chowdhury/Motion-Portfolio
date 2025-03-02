@@ -40,7 +40,6 @@
 * {
   cursor: url("custom-cursor.png"), auto !important;
 }
-
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
