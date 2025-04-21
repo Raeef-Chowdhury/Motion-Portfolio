@@ -4,48 +4,111 @@ const tooltip = document.querySelector(".tooltip");
 const heroEffects = document.querySelectorAll(".hero__effect");
 const cursorBorder = document.querySelector(".cursor");
 const body = document.querySelector("body");
+const projectCards = document.querySelectorAll(".project");
 console.log(body.clientHeight);
+////////////////////////////////////////////////////////////////
+projectCards.forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    // Animate hovered card
+    animate(
+      card,
+      {
+        y: -10,
+        boxShadow: "0px 20px 40px rgba(255, 255, 255, 0.2)",
+        borderColor: "#ffffff",
+      },
+      {
+        duration: 0.4,
+        easing: "ease-out",
+      }
+    );
+
+    // Dim all others
+    projectCards.forEach((otherCard) => {
+      if (otherCard !== card) {
+        animate(otherCard, { opacity: 0.5 }, { duration: 0.3 });
+      }
+    });
+  });
+
+  card.addEventListener("mouseleave", () => {
+    // Reset hovered card
+    animate(
+      card,
+      {
+        y: 0,
+        boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)",
+        borderColor: "#ffffff", // or back to Tailwind's default if customized
+      },
+      {
+        duration: 0.4,
+        easing: "ease-in",
+      }
+    );
+
+    // Reset others
+    projectCards.forEach((otherCard) => {
+      animate(otherCard, { opacity: 1 }, { duration: 0.3 });
+    });
+  });
+});
 /////////////////////////////////////////////////////////////////
+inView(
+  ".scroll--left",
+  (element) => {
+    animate(
+      element,
+      { opacity: [0, 1], x: ["-50rem", 0], filter: ["blur(5px)", "blur(0px)"] },
+      {
+        duration: 2,
+        easing: [0.17, 0.55, 0.55, 1],
+        type: "spring",
+      }
+    );
+  },
+  {
+    once: true,
+  }
+);
+inView(
+  ".scroll--down",
+  (element) => {
+    animate(
+      element,
+      { opacity: [0, 1], scale: [0, 1], filter: ["blur(5px)", "blur(0px)"] },
+      {
+        duration: 2,
+        easing: [0.17, 0.55, 0.55, 1],
+        type: "spring",
+      }
+    );
+  },
+  {
+    once: true,
+  }
+);
 
-inView(".scroll--left", (element) => {
-  animate(
-    element,
-    { opacity: [0, 1], x: ["-50rem", 0], filter: ["blur(5px)", "blur(0px)"] },
-    {
-      duration: 2,
-      easing: [0.17, 0.55, 0.55, 1],
-      type: "spring",
-    }
-  );
-
-  return () => animate(element, { opacity: 0, x: -100 });
-});
-inView(".scroll--down", (element) => {
-  animate(
-    element,
-    { opacity: [0, 1], scale: [0, 1], filter: ["blur(5px)", "blur(0px)"] },
-    {
-      duration: 2,
-      easing: [0.17, 0.55, 0.55, 1],
-      type: "spring",
-    }
-  );
-
-  return () => animate(element, { opacity: 0, scale: 0 });
-});
-inView(".scroll__right", (element) => {
-  animate(
-    element,
-    { opacity: [0, 1], x: ["50rem", 0], filter: ["blur(5px)", "blur(0px)"] },
-    {
-      duration: 2,
-      easing: [0.17, 0.55, 0.55, 1],
-      type: "spring",
-    }
-  );
-
-  return () => animate(element, { opacity: 0, x: -100 });
-});
+inView(
+  ".scroll__right",
+  (element) => {
+    animate(
+      element,
+      {
+        opacity: [0, 1],
+        x: ["50rem", 0],
+        filter: ["blur(5px)", "blur(0px)"],
+      },
+      {
+        duration: 2,
+        easing: [0.17, 0.55, 0.55, 1],
+        type: "spring",
+      }
+    );
+  },
+  {
+    once: true,
+  }
+);
 ////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 const updatePosition = (event) => {
