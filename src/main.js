@@ -192,23 +192,39 @@ function slideNext(currentIndex, heroEffects) {
   return nextIndex;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-animate(
+// animate(
+//   ".stagger",
+//   {
+//     opacity: [0, 1],
+//     filter: ["blur(5px)", "blur(0px)"],
+//     x: ["-20rem", "0rem"],
+//   },
+//   { delay: stagger(0.3), duration: 1, type: "spring", bounce: 0.2 }
+// );
+inView(
   ".stagger",
-  {
-    opacity: [0, 1],
-    filter: ["blur(5px)", "blur(0px)"],
-    x: ["-50rem", "0rem"],
+  (element) => {
+    animate(
+      ".stagger",
+      {
+        opacity: [0, 1],
+        filter: ["blur(5px)", "blur(0px)"],
+        x: ["-20rem", "0rem"],
+      },
+      { delay: stagger(0.3), duration: 1, type: "spring", bounce: 0.2 }
+    );
   },
-  { delay: stagger(0.4), duration: 2, type: "spring", bounce: 0.3 }
+  {
+    once: true,
+  }
 );
-
 animate(
   ".stagger__btn",
   {
     opacity: [0, 1],
     filter: ["blur(5px)", "blur(0px)"],
-    x: ["-10rem", "0rem"],
-    y: ["10rem", "0rem"],
+    x: ["-2rem", "0rem"],
+    y: ["2rem", "0rem"],
   },
   { delay: stagger(0.4), duration: 2, type: "spring", bounce: 0.3 }
 );
