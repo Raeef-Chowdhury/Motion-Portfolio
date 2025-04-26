@@ -211,7 +211,7 @@ inView(
         filter: ["blur(5px)", "blur(0px)"],
         x: ["-20rem", "0rem"],
       },
-      { delay: stagger(0.3), duration: 1, type: "spring", bounce: 0.2 }
+      { delay: stagger(0.3), duration: 0.6, type: "spring", bounce: 0.2 }
     );
   },
   {
